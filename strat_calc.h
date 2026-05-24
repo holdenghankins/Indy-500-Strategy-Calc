@@ -12,5 +12,6 @@ int calcTireAge(int sincePit, int underCaution);
 int* findStints(int laps, int tireAge);
 void addLapsToStint(int* lapsPtr, int* stintPtr, int lapsToAdd);
 int* orderStints(int* stints);
+void swap(int*, int*);
 
 #endif
