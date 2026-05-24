@@ -51,15 +51,23 @@ void addLapsToStint(int* lapsPtr, int* stintPtr, int lapsToAdd) {
 int* orderStints(int* stints) {
     for (int i = 0; i < 5; i++) {
         for (int l = 0; l < 5 - i; l++) {
-            if (stints[l] > 33 && stints [l + 1] > 32 && stints[l] < stints[l + 1]) {
+            if (stints[l] > 33 && stints [l + 1] > 32 && stints[l] > stints[l + 1]) {
                 swap(&stints[l], &stints[l + 1]);
             }
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        if (stints[i] == 0) {
+            swap (&stints[i], &stints[5]);
+            break;
         }
     }
     return stints;
 }
 
 void swap(int* n1, int* n2) {
+    printf("swap\n");
     int temp = *n1;
     *n1 = *n2;
     *n2 = temp;
@@ -67,7 +75,7 @@ void swap(int* n1, int* n2) {
 
 int main() {
     printf("running...\n");
-    int* stints = calcStrat(0, 0, 0);
+    int* stints = calcStrat(125, 10, 0);
     for (int i = 0; i < 6; i++) {
         printf("%d ", stints[i]);
     }
